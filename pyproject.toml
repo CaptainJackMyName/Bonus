@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bonus"
+version = "0.1.0"
+description = "红利 - 一款面向价值投资者的因果推断智能桌面应用"
+readme = "README.zh.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Bonus Team"},
+]
+keywords = ["flet", "stock", "causal-inference", "llm", "desktop"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: X11 Applications",
+    "Environment :: Win32 (MS Windows)",
+    "Intended Audience :: Financial and Insurance Industry",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: Microsoft :: Windows",
+]
+
+dependencies = [
+    "flet>=0.85.3",
+    "openai>=2.44.0",
+    "httpx>=0.27.0",
+    "beautifulsoup4>=4.12.0",
+    "lxml>=5.0.0",
+    "aiosqlite>=0.20.0",
+    "cryptography>=41.0.0",
+    "python-dotenv>=1.0.0",
+    "pyyaml>=6.0",
+    "pydantic>=2.0.0",
+    "akshare>=1.18.64",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "flake8>=7.0.0",
+]
+
+[project.scripts]
+bonus = "bonus.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+bonus = ["config.yaml"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]

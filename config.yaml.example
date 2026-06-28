@@ -1,0 +1,36 @@
+llm:
+  provider: "openai"          # 可选 openai / deepseek / qwen
+  api_key: "sk-xxxx"         # 你的 LLM API Key
+  model: "gpt-4o"            # 推荐具备强推理能力的模型
+  base_url: ""               # 若使用中转，填入 base_url；留空则使用官方接口
+  temperature: 0.3           # 推理温度，建议较低以保持逻辑稳定
+
+skills:
+  sina:
+    enabled: true            # 新浪财经热点抓取（无需 API Key）
+    top_k: 10
+  tavily:
+    api_key: ""              # Tavily Search API Key
+    enabled: false
+    top_k: 10
+  groundapi:
+    api_key: ""              # GroundAPI API Key
+    enabled: false
+    top_k: 10
+  akshare:
+    enabled: true            # akshare 基本面数据获取（需 pip install akshare）
+    recent_quarters: 4       # 获取近几个季度的财务数据
+
+agent:
+  default_mode: "auto"       # 默认推理模式: auto / stepwise
+  max_inference_depth: 5     # 最大推理深度
+  min_confidence: 0.5        # 最低置信度阈值
+
+storage:
+  db_path: "bonus.db"        # SQLite 数据库文件路径
+  max_history: 100           # 最大历史记录条数
+
+ui:
+  theme: "dark"              # 主题: dark / light
+  window_width: 1200
+  window_height: 800
